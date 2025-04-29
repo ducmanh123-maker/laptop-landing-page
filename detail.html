@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop MSI Modern 15 B13M-438VN | Hoàng Hà Mobile</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #d0021b;
+        padding: 10px 0;
+      }
+
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .search-bar {
+        display: flex;
+        width: 50%;
+      }
+
+      .search-bar input {
+        flex-grow: 1;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .search-bar button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+      }
+
+      .user-actions {
+        display: flex;
+        gap: 15px;
+        color: white;
+      }
+
+      .user-actions a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .user-actions i {
+        font-size: 20px;
+      }
+
+      /* Navigation */
+      .main-nav {
+        background-color: #f4f4f4;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-list {
+        display: flex;
+        list-style-type: none;
+        padding: 10px 0;
+      }
+
+      .nav-list li {
+        margin-right: 20px;
+      }
+
+      .nav-list a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .nav-list a:hover {
+        color: #d0021b;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        padding: 15px 0;
+        font-size: 14px;
+      }
+
+      .breadcrumb a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .breadcrumb span {
+        margin: 0 5px;
+      }
+
+      /* Product Section */
+      .product-section {
+        display: flex;
+        gap: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-gallery {
+        flex: 0 0 40%;
+      }
+
+      .main-image {
+        width: 100%;
+        height: 400px;
+        background-color: #f9f9f9;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .main-image img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .thumbnail-gallery {
+        display: flex;
+        gap: 10px;
+      }
+
+      .thumbnail {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .thumbnail.active {
+        border-color: #d0021b;
+      }
+
+      .thumbnail img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .product-info {
+        flex: 0 0 60%;
+      }
+
+      .product-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .product-meta {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .rating {
+        color: #f8ce0b;
+      }
+
+      .product-price {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 20px;
+      }
+
+      .current-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #d0021b;
+        margin-right: 10px;
+      }
+
+      .original-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 18px;
+      }
+
+      .discount-badge {
+        background-color: #d0021b;
+        color: white;
+        padding: 3px 6px;
+        border-radius: 3px;
+        font-size: 14px;
+        margin-left: 10px;
+      }
+
+      .product-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .buy-now {
+        background-color: #d0021b;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .buy-now:hover {
+        background-color: #b8021a;
+      }
+
+      .add-to-cart {
+        background-color: #ff6a00;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .add-to-cart:hover {
+        background-color: #e56000;
+      }
+
+      .promotion-box {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 4px;
+      }
+
+      .promotion-title {
+        color: #d0021b;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .promotion-title i {
+        margin-right: 5px;
+      }
+
+      .promotion-list {
+        list-style-type: none;
+      }
+
+      .promotion-list li {
+        padding: 8px 0;
+        border-bottom: 1px dashed #ddd;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .promotion-list li:before {
+        content: "•";
+        color: #d0021b;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .specs-summary {
+        margin-top: 20px;
+      }
+
+      .specs-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .specs-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .spec-item {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .spec-label {
+        font-weight: bold;
+        margin-right: 5px;
+        color: #666;
+      }
+
+      /* Tabs Section */
+      .product-tabs {
+        margin-top: 30px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .tabs-nav {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .tab-button {
+        padding: 15px 20px;
+        border: none;
+        background-color: transparent;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .tab-button.active {
+        color: #d0021b;
+        border-bottom: 2px solid #d0021b;
+      }
+
+      .tab-content {
+        padding: 20px;
+      }
+
+      .tab-pane {
+        display: none;
+      }
+
+      .tab-pane.active {
+        display: block;
+      }
+
+      .product-description {
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1f1f1f;
+        color: white;
+        padding: 40px 0 20px;
+        margin-top: 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        list-style-type: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        margin-top: 40px;
+        text-align: center;
+        color: #999;
+        font-size: 14px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <a href="#">
+              <img src="/api/placeholder/180/40" alt="Hoàng Hà Mobile" />
+            </a>
+          </div>
+
+          <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+            <button>Tìm kiếm</button>
+          </div>
+
+          <div class="user-actions">
+            <div class="action-item">
+              <i>📱</i>
+              <span>Gọi mua: 1900.2091</span>
+            </div>
+
+            <div class="action-item">
+              <i>🛒</i>
+              <span>Giỏ hàng</span>
+            </div>
+
+            <div class="action-item">
+              <i>👤</i>
+              <span>Tài khoản</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#">Điện thoại</a></li>
+          <li class="nav-item"><a href="#">Laptop</a></li>
+          <li class="nav-item"><a href="#">Máy tính bảng</a></li>
+          <li class="nav-item"><a href="#">Âm thanh</a></li>
+          <li class="nav-item"><a href="#">Đồng hồ</a></li>
+          <li class="nav-item"><a href="#">Nhà thông minh</a></li>
+          <li class="nav-item"><a href="#">Phụ kiện</a></li>
+          <li class="nav-item"><a href="#">Máy cũ giá rẻ</a></li>
+          <li class="nav-item"><a href="#">Khuyến mãi</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="breadcrumb">
+        <a href="#">Trang chủ</a>
+        <span>></span>
+        <a href="#">Laptop</a>
+        <span>></span>
+        <a href="#">MSI</a>
+        <span>></span>
+        <span>Laptop MSI Modern 15 B13M-438VN</span>
+      </div>
+
+      <section class="product-section">
+        <div class="product-gallery">
+          <div class="main-image">
+            <img
+              src="/api/placeholder/400/320"
+              alt="MSI Modern 15 B13M-438VN"
+            />
+          </div>
+          <div class="thumbnail-gallery">
+            <div class="thumbnail active">
+              <img
+                src="/api/placeholder/50/50"
+                alt="MSI Modern 15 Thumbnail 1"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="/api/placeholder/50/50"
+                alt="MSI Modern 15 Thumbnail 2"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="/api/placeholder/50/50"
+                alt="MSI Modern 15 Thumbnail 3"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="/api/placeholder/50/50"
+                alt="MSI Modern 15 Thumbnail 4"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h1 class="product-title">Laptop MSI Modern 15 B13M-438VN</h1>
+
+          <div class="product-meta">
+            <div class="brand">Thương hiệu: <strong>MSI</strong></div>
+            <div class="rating">★★★★★ (10 đánh giá)</div>
+            <div class="sku">Mã SP: B13M-438VN</div>
+          </div>
+
+          <div class="product-price">
+            <div class="current-price">15.990.000₫</div>
+            <div class="original-price">19.990.000₫</div>
+            <div class="discount-badge">-20%</div>
+          </div>
+
+          <div class="specs-summary">
+            <div class="specs-title">Cấu hình chính:</div>
+            <div class="specs-list">
+              <div class="spec-item">
+                <span class="spec-label">CPU:</span>
+                <span class="spec-value"
+                  >Intel Core i5-1335U (up to 4.6GHz, 10 cores)</span
+                >
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">RAM:</span>
+                <span class="spec-value">16GB DDR4 3200MHz</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Ổ cứng:</span>
+                <span class="spec-value">512GB PCIe NVMe SSD</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Card đồ họa:</span>
+                <span class="spec-value">Intel Iris Xe Graphics</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Màn hình:</span>
+                <span class="spec-value">15.6 inch FHD (1920x1080)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Hệ điều hành:</span>
+                <span class="spec-value">Windows 11 Home</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <button class="buy-now">MUA NGAY</button>
+            <button class="add-to-cart">THÊM VÀO GIỎ</button>
+          </div>
+
+          <div class="promotion-box">
+            <div class="promotion-title"><i>🎁</i> Khuyến mãi đặc biệt</div>
+            <ul class="promotion-list">
+              <li>Tặng Balo MSI chính hãng trị giá 790.000đ</li>
+              <li>Chuột không dây Zadez M325 trị giá 200.000đ</li>
+              <li>Mã giảm giá 200.000đ khi mua phụ kiện kèm laptop</li>
+              <li>Giảm giá 50% khi mua Microsoft Office 365 kèm laptop</li>
+              <li>Trả góp 0% lãi suất qua thẻ tín dụng</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-tabs">
+        <div class="tabs-nav">
+          <button class="tab-button active" data-tab="description">
+            Mô tả sản phẩm
+          </button>
+          <button class="tab-button" data-tab="specs">Thông số kỹ thuật</button>
+          <button class="tab-button" data-tab="reviews">Đánh giá (10)</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="description">
+            <div class="product-description">
+              <h2>
+                Laptop MSI Modern 15 B13M-438VN - Hiệu năng mạnh mẽ cho công
+                việc chuyên nghiệp
+              </h2>
+              <p>
+                MSI Modern 15 B13M-438VN là mẫu laptop mỏng nhẹ, hiệu năng cao,
+                được thiết kế dành cho những người làm việc chuyên nghiệp và
+                sinh viên. Với thiết kế tinh tế, cấu hình mạnh mẽ và màn hình
+                chất lượng cao, đây là lựa chọn lý tưởng cho công việc và giải
+                trí hàng ngày.
+              </p>
+
+              <h3>Thiết kế sang trọng, di động</h3>
+              <p>
+                MSI Modern 15 sở hữu thiết kế mỏng nhẹ với trọng lượng chỉ 1.7kg
+                và độ dày 19.9mm, giúp bạn dễ dàng mang theo khi di chuyển. Vỏ
+                máy được làm từ hợp kim nhôm cao cấp với tông màu xám thanh
+                lịch, tạo cảm giác sang trọng và chuyên nghiệp.
+              </p>
+
+              <h3>Hiệu năng mạnh mẽ, đa nhiệm mượt mà</h3>
+              <p>
+                Được trang bị bộ vi xử lý Intel Core i5-1335U thế hệ thứ 13 với
+                10 nhân, kết hợp cùng 16GB RAM DDR4 3200MHz và ổ cứng SSD 512GB
+                PCIe NVMe, MSI Modern 15 mang lại hiệu năng mạnh mẽ, đáp ứng tốt
+                nhu cầu đa nhiệm và các tác vụ đòi hỏi xử lý cao như chỉnh sửa
+                ảnh, thiết kế đồ họa cơ bản, hay làm việc với các phần mềm văn
+                phòng phức tạp.
+              </p>
+
+              <h3>Trải nghiệm hình ảnh sắc nét</h3>
+              <p>
+                Màn hình 15.6 inch Full HD (1920x1080) với tấm nền IPS cho góc
+                nhìn rộng và màu sắc chân thực. Công nghệ chống chói giúp bạn
+                làm việc thoải mái trong môi trường có ánh sáng mạnh, không gây
+                mỏi mắt khi sử dụng lâu.
+              </p>
+
+              <h3>Bàn phím thoải mái, bảo mật cao</h3>
+              <p>
+                Bàn phím chiclet với hành trình phím 1.5mm cho trải nghiệm gõ
+                thoải mái và chính xác. Đèn nền bàn phím giúp bạn làm việc dễ
+                dàng trong điều kiện thiếu sáng. Máy còn được tích hợp cảm biến
+                vân tay trên touchpad, giúp mở khóa nhanh chóng và bảo mật.
+              </p>
+
+              <h3>Kết nối đa dạng</h3>
+              <p>
+                MSI Modern 15 được trang bị đầy đủ các cổng kết nối cần thiết
+                như USB Type-C, USB 3.2, HDMI, jack tai nghe 3.5mm, và đầu đọc
+                thẻ SD. Máy hỗ trợ Wi-Fi 6 và Bluetooth 5.2 cho kết nối không
+                dây nhanh và ổn định.
+              </p>
+
+              <h3>Pin bền bỉ, sạc nhanh</h3>
+              <p>
+                Pin 3 cell, 52Whr cho thời gian sử dụng lên đến 8 giờ với các
+                tác vụ văn phòng thông thường. Công nghệ sạc nhanh giúp bạn nạp
+                đầy pin trong thời gian ngắn, luôn sẵn sàng làm việc mọi lúc mọi
+                nơi.
+              </p>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="specs">
+            <table class="specs-table">
+              <tr>
+                <td><strong>CPU</strong></td>
+                <td>Intel Core i5-1335U (up to 4.6GHz, 10 cores)</td>
+              </tr>
+              <tr>
+                <td><strong>RAM</strong></td>
+                <td>16GB DDR4 3200MHz</td>
+              </tr>
+              <tr>
+                <td><strong>Ổ cứng</strong></td>
+                <td>512GB PCIe NVMe SSD</td>
+              </tr>
+              <tr>
+                <td><strong>Card đồ họa</strong></td>
+                <td>Intel Iris Xe Graphics</td>
+              </tr>
+              <tr>
+                <td><strong>Màn hình</strong></td>
+                <td>15.6 inch FHD (1920x1080), IPS, Anti-Glare</td>
+              </tr>
+              <tr>
+                <td><strong>Hệ điều hành</strong></td>
+                <td>Windows 11 Home</td>
+              </tr>
+              <tr>
+                <td><strong>Pin</strong></td>
+                <td>3 cell, 52Whr</td>
+              </tr>
+              <tr>
+                <td><strong>Kích thước</strong></td>
+                <td>359 x 241 x 19.9 mm</td>
+              </tr>
+              <tr>
+                <td><strong>Trọng lượng</strong></td>
+                <td>1.7 kg</td>
+              </tr>
+              <tr>
+                <td><strong>Cổng kết nối</strong></td>
+                <td>
+                  1x Type-C USB 3.2 Gen 2, 2x Type-A USB 3.2 Gen 2, 1x HDMI, 1x
+                  Micro SD, 1x Audio combo jack
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Kết nối không dây</strong></td>
+                <td>Wi-Fi 6 (802.11ax), Bluetooth 5.2</td>
+              </tr>
+              <tr>
+                <td><strong>Webcam</strong></td>
+                <td>HD Webcam (720p)</td>
+              </tr>
+              <tr>
+                <td><strong>Âm thanh</strong></td>
+                <td>2x 2W stereo speakers, DTS Audio</td>
+              </tr>
+              <tr>
+                <td><strong>Bảo mật</strong></td>
+                <td>Cảm biến vân tay tích hợp trên touchpad</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="tab-pane" id="reviews">
+            <div class="review-summary">
+              <h3>Đánh giá sản phẩm</h3>
+              <div class="average-rating">4.8/5</div>
+              <div class="rating-stars">★★★★★</div>
+              <p>Dựa trên 10 đánh giá</p>
+            </div>
+
+            <div class="review-list">
+              <div class="review-item">
+                <div class="reviewer-info">
+                  <strong>Nguyễn Văn A</strong>
+                  <div class="review-date">20/04/2025</div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <div class="review-content">
+                  <p>
+                    Máy thiết kế đẹp, hiệu năng tốt, chạy mượt các ứng dụng văn
+                    phòng. Pin dùng được khoảng 6-7 tiếng cho công việc thường
+                    ngày. Rất hài lòng với sản phẩm!
+                  </p>
+                </div>
+              </div>
+
+              <div class="review-item">
+                <div class="reviewer-info">
+                  <strong>Trần Thị B</strong>
+                  <div class="review-date">15/04/2025</div>
+                </div>
+                <div class="review-rating">★★★★☆</div>
+                <div class="review-content">
+                  <p>
+                    Laptop chạy nhanh, mát, thiết kế gọn nhẹ. Chỉ tiếc là màn
+                    hình hơi tối trong môi trường nhiều ánh sáng.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Thông tin</h3>
+            <ul class="footer-links">
+              <li><a href="#">Giới thiệu công ty</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Gửi góp ý, khiếu nại</a></li>
+              <li><a href="#">Tìm siêu thị</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Hỗ trợ khách hàng</h3>
+            <ul class="footer-links">
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Giao hàng & Thanh toán</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Liên hệ</h3>
+            <ul class="footer-links">
+              <li><a href="#">Hotline: 1900.2091</a></li>
+              <li><a href="#">Email: cskh@hoanghamobile.com</a></li>
+              <li><a href="#">Zalo: 1900.2091</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Thanh toán</h3>
+            <div class="payment-methods">
+              <img src="/api/placeholder/200/60" alt="Payment Methods" />
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025 Hoàng Hà Mobile. Tất cả các quyền được bảo lưu.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Image Gallery Functionality
+      const thumbnails = document.querySelectorAll(".thumbnail");
+      const mainImage = document.querySelector(".main-image img");
+
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", function () {
+          // Remove active class from all thumbnails
+          thumbnails.forEach((t) => t.classList.remove("active"));
+
+          // Add active class to clicked thumbnail
+          this.classList.add("active");
+
+          // Change main image source (in a real implementation)
+          // mainImage.src = this.querySelector('img').src;
+        });
+      });
+
+      // Tab Functionality
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabPanes = document.querySelectorAll(".tab-pane");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons and panes
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          tabPanes.forEach((p) => p.classList.remove("active"));
+
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          // Show corresponding tab pane
+          const tabId = this.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+        });
+      });
+
+      // Buy Now Button
+      const buyNowButton = document.querySelector(".buy-now");
+      buyNowButton.addEventListener("click", function () {
+        alert("Chuyển đến trang thanh toán!");
+      });
+
+      // Add to Cart Button
+      const addToCartButton = document.querySelector(".add-to-cart");
+      addToCartButton.addEventListener("click", function () {
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
+      });
+    </script>
+  </body>
+</html>

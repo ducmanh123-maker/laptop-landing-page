@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoàng Hà Mobile - Laptop</title>
+    <style>
+      /* Banners */
+      .banner {
+        margin: 20px 0;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+
+      .banner img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+      }
+
+      /* Filters */
+      .filters {
+        background-color: var(--white);
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+      }
+
+      .filters h2 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .filter-options {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .filter-options button {
+        border: 1px solid #ddd;
+        background-color: var(--white);
+        padding: 8px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .filter-options button:hover {
+        background-color: var(--light-blue);
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+
+      .filter-options button.active {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        border-color: var(--secondary-color);
+      }
+
+      /* Products */
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .product-card {
+        background-color: var(--white);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .discount-tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: var(--discount-tag);
+        color: var(--white);
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .product-image {
+        height: 200px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--light-blue);
+      }
+
+      .product-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .product-info {
+        padding: 15px;
+      }
+
+      .product-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        height: 40px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      .product-price {
+        color: var(--primary-color);
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .product-original-price {
+        color: var(--dark-gray);
+        font-size: 14px;
+        text-decoration: line-through;
+        margin-left: 5px;
+      }
+
+      .product-specs {
+        font-size: 14px;
+        color: var(--dark-gray);
+        margin-bottom: 15px;
+      }
+
+      .product-specs span {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .product-rating i {
+        color: var(--gold);
+        margin-right: 2px;
+      }
+
+      .product-rating span {
+        font-size: 14px;
+        color: var(--dark-gray);
+        margin-left: 5px;
+      }
+
+      .add-to-cart {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .add-to-cart:hover {
+        background-color: #b7001a;
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+      }
+
+      .pagination button {
+        margin: 0 5px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        background-color: var(--white);
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .pagination button.active {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        border-color: var(--secondary-color);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--footer-bg);
+        color: var(--white);
+        padding: 40px 0;
+        margin-top: 40px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #ddd;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: #bbb;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .footer-column a:hover {
+        color: var(--white);
+      }
+
+      .footer-bottom {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #444;
+        text-align: center;
+        font-size: 14px;
+        color: #bbb;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-wrap: wrap;
+        }
+
+        .logo {
+          margin-bottom: 10px;
+        }
+
+        .search-bar {
+          order: 3;
+          margin: 10px 0;
+          width: 100%;
+        }
+
+        .nav-icons {
+          order: 2;
+        }
+
+        .products {
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+      }
+
+      @media (max-width: 576px) {
+        .products {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .product-image {
+          height: 150px;
+        }
+      }
+
+      /* ...existing code... */
+      /* Slider Banner */
+      .banner-slider {
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .slides {
+        width: 100%;
+        height: 400px;
+        position: relative;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        z-index: 1;
+      }
+
+      .slide.active {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .slider-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .prev-slide,
+      .next-slide {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 0 15px;
+        color: var(--dark-gray);
+        transition: all 0.3s ease;
+      }
+
+      .prev-slide:hover,
+      .next-slide:hover {
+        background-color: var(--white);
+        color: var(--primary-color);
+      }
+
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background-color: var(--primary-color);
+      }
+
+      @media (max-width: 768px) {
+        .slides {
+          height: 300px;
+        }
+
+        .prev-slide,
+        .next-slide {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .slides {
+          height: 200px;
+        }
+      }
+      /* ...existing code... */
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <a href="#">
+              <img src="/api/placeholder/180/40" alt="Hoàng Hà Mobile" />
+            </a>
+          </div>
+
+          <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+            <button>Tìm kiếm</button>
+          </div>
+
+          <!-- <div class="user-actions">
+            <div class="action-item">
+              <i>📱</i>
+              <span>Gọi mua: 1900.2091</span>
+            </div>
+
+            <div class="action-item">
+              <i>🛒</i>
+              <span>Giỏ hàng</span>
+            </div>
+
+            <div class="action-item">
+              <i>👤</i>
+              <span>Tài khoản</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </header>
+
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#">Điện thoại</a></li>
+          <li class="nav-item"><a href="#">Laptop</a></li>
+          <li class="nav-item"><a href="#">Máy tính bảng</a></li>
+          <li class="nav-item"><a href="#">Âm thanh</a></li>
+          <li class="nav-item"><a href="#">Đồng hồ</a></li>
+          <li class="nav-item"><a href="#">Nhà thông minh</a></li>
+          <li class="nav-item"><a href="#">Phụ kiện</a></li>
+          <li class="nav-item"><a href="#">Máy cũ giá rẻ</a></li>
+          <li class="nav-item"><a href="#">Khuyến mãi</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Banner -->
+      <!-- Banner -->
+      <div class="banner-slider">
+        <div class="slides">
+          <div class="slide active">
+            <img
+              src="/api/placeholder/1200/400?text=Laptop+Promotions"
+              alt="Laptop Promotions"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="/api/placeholder/1200/400?text=New+Arrivals"
+              alt="New Arrivals"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="/api/placeholder/1200/400?text=Special+Offers"
+              alt="Special Offers"
+            />
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="prev-slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="slider-dots"></div>
+          <button class="next-slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <h2>Laptop</h2>
+        <div class="filter-options">
+          <button class="active">Tất cả</button>
+          <button>Gaming</button>
+          <button>Macbook</button>
+          <button>Văn phòng</button>
+          <button>Đồ họa</button>
+          <button>Mỏng nhẹ</button>
+          <button>Cao cấp</button>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div class="products" id="productsList">
+        <!-- Products will be populated here by JavaScript -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button><i class="fas fa-angle-right"></i></button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Thông tin</h3>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Tin tức</a></li>
+              <li><a href="#">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Chính sách</h3>
+            <ul>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách thanh toán</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Hỗ trợ khách hàng</h3>
+            <ul>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn thanh toán</a></li>
+              <li><a href="#">Tra cứu đơn hàng</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Liên hệ</h3>
+            <ul>
+              <li>
+                <a href="#"><i class="fas fa-phone"></i> Hotline: 1900 1234</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-envelope"></i> Email:
+                  info@hoanghamobile.com</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-map-marker-alt"></i> Địa chỉ: Hà Nội, Việt
+                  Nam</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Hoàng Hà Mobile. Tất cả quyền được bảo lưu.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Sample product data
+      const products = [
+        {
+          id: 1,
+          name: "Laptop Gaming Asus ROG Strix G15",
+          price: 23990000,
+          originalPrice: 25990000,
+          discount: "8%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "AMD Ryzen 7 5800H",
+            "16GB RAM",
+            "512GB SSD",
+            "RTX 3060",
+            '15.6" FHD 144Hz',
+          ],
+          rating: 4.8,
+          reviews: 126,
+        },
+        {
+          id: 2,
+          name: "MacBook Air M3 2024",
+          price: 27990000,
+          originalPrice: 28990000,
+          discount: "3%",
+          image: "/api/placeholder/250/200",
+          specs: ["Apple M3", "8GB RAM", "256GB SSD", '13.3" Retina', "macOS"],
+          rating: 4.9,
+          reviews: 215,
+        },
+        {
+          id: 3,
+          name: "Dell XPS 13 (2025)",
+          price: 32990000,
+          originalPrice: 34990000,
+          discount: "6%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "Intel Core i7 13th Gen",
+            "16GB RAM",
+            "512GB SSD",
+            '13.4" 4K OLED',
+            "Windows 11",
+          ],
+          rating: 4.7,
+          reviews: 98,
+        },
+        {
+          id: 4,
+          name: "Lenovo ThinkPad X1 Carbon Gen 11",
+          price: 34990000,
+          originalPrice: 36990000,
+          discount: "5%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "Intel Core i7 13th Gen",
+            "16GB RAM",
+            "1TB SSD",
+            '14" WQUXGA',
+            "Windows 11 Pro",
+          ],
+          rating: 4.8,
+          reviews: 76,
+        },
+        {
+          id: 5,
+          name: "HP Pavilion 15 Gaming",
+          price: 17990000,
+          originalPrice: 19990000,
+          discount: "10%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "AMD Ryzen 5 5600H",
+            "8GB RAM",
+            "512GB SSD",
+            "GTX 1650",
+            '15.6" FHD',
+          ],
+          rating: 4.5,
+          reviews: 203,
+        },
+        {
+          id: 6,
+          name: "Acer Nitro 5 Gaming",
+          price: 19990000,
+          originalPrice: 21990000,
+          discount: "9%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "Intel Core i5 12th Gen",
+            "8GB RAM",
+            "512GB SSD",
+            "RTX 3050",
+            '15.6" FHD 144Hz',
+          ],
+          rating: 4.6,
+          reviews: 154,
+        },
+        {
+          id: 7,
+          name: "MSI Katana GF76",
+          price: 22990000,
+          originalPrice: 24990000,
+          discount: "8%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "Intel Core i7 12th Gen",
+            "16GB RAM",
+            "512GB SSD",
+            "RTX 3050Ti",
+            '17.3" FHD 144Hz',
+          ],
+          rating: 4.7,
+          reviews: 87,
+        },
+        {
+          id: 8,
+          name: "Huawei MateBook X Pro",
+          price: 31990000,
+          originalPrice: 33990000,
+          discount: "6%",
+          image: "/api/placeholder/250/200",
+          specs: [
+            "Intel Core i7 13th Gen",
+            "16GB RAM",
+            "1TB SSD",
+            '14.2" 3K Touch',
+            "Windows 11",
+          ],
+          rating: 4.8,
+          reviews: 62,
+        },
+      ];
+
+      // Format price
+      function formatPrice(price) {
+        return new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        }).format(price);
+      }
+
+      // Generate star rating HTML
+      function generateRatingStars(rating) {
+        let starsHTML = "";
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 >= 0.5;
+
+        for (let i = 0; i < fullStars; i++) {
+          starsHTML += '<i class="fas fa-star"></i>';
+        }
+
+        if (hasHalfStar) {
+          starsHTML += '<i class="fas fa-star-half-alt"></i>';
+        }
+
+        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+        for (let i = 0; i < emptyStars; i++) {
+          starsHTML += '<i class="far fa-star"></i>';
+        }
+
+        return starsHTML;
+      }
+
+      // Display products
+      function displayProducts(products) {
+        const productsContainer = document.getElementById("productsList");
+        let productsHTML = "";
+
+        products.forEach((product) => {
+          productsHTML += `
+                    <div class="product-card">
+                        <div class="discount-tag">Giảm ${product.discount}</div>
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <div class="product-price">
+                                ${formatPrice(product.price)}
+                                <span class="product-original-price">${formatPrice(
+                                  product.originalPrice
+                                )}</span>
+                            </div>
+                            <div class="product-specs">
+                                ${product.specs
+                                  .map((spec) => `<span>${spec}</span>`)
+                                  .join("")}
+                            </div>
+                            <div class="product-rating">
+                                ${generateRatingStars(product.rating)}
+                                <span>${product.rating} (${
+            product.reviews
+          })</span>
+                            </div>
+                            <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                `;
+        });
+
+        productsContainer.innerHTML = productsHTML;
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        displayProducts(products);
+
+        // Filter buttons
+        const filterButtons = document.querySelectorAll(
+          ".filter-options button"
+        );
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+            // In a real app, this would filter products
+          });
+        });
+
+        // Pagination buttons
+        const pageButtons = document.querySelectorAll(".pagination button");
+        pageButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            pageButtons.forEach((btn) => btn.classList.remove("active"));
+            if (!this.querySelector("i")) {
+              // Skip the next button
+              this.classList.add("active");
+            }
+            // In a real app, this would load the corresponding page
+          });
+        });
+
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+          });
+        });
+      });
+
+      // ...existing code...
+      // Banner slider functionality
+      function initSlider() {
+        const slides = document.querySelectorAll(".slide");
+        const sliderDots = document.querySelector(".slider-dots");
+        const prevBtn = document.querySelector(".prev-slide");
+        const nextBtn = document.querySelector(".next-slide");
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Create dots based on number of slides
+        slides.forEach((_, index) => {
+          const dot = document.createElement("div");
+          dot.classList.add("dot");
+          if (index === 0) dot.classList.add("active");
+          dot.addEventListener("click", () => goToSlide(index));
+          sliderDots.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll(".dot");
+
+        // Go to specific slide
+        function goToSlide(slideIndex) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          dots.forEach((dot) => dot.classList.remove("active"));
+
+          slides[slideIndex].classList.add("active");
+          dots[slideIndex].classList.add("active");
+
+          currentSlide = slideIndex;
+        }
+
+        // Next slide
+        function nextSlide() {
+          const newIndex = (currentSlide + 1) % slides.length;
+          goToSlide(newIndex);
+        }
+
+        // Previous slide
+        function prevSlide() {
+          const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+          goToSlide(newIndex);
+        }
+
+        // Set up event listeners
+        prevBtn.addEventListener("click", () => {
+          prevSlide();
+          resetInterval();
+        });
+
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
+          resetInterval();
+        });
+
+        // Auto-advance slides
+        function startSlideInterval() {
+          slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function resetInterval() {
+          clearInterval(slideInterval);
+          startSlideInterval();
+        }
+
+        // Initialize auto-slide
+        startSlideInterval();
+      }
+
+      // Add slider initialization to the DOMContentLoaded event
+      document.addEventListener("DOMContentLoaded", function () {
+        displayProducts(products);
+        initSlider(); // Initialize the slider
+
+        // ...existing event handlers...
+      });
+      // ...existing code...
+    </script>
+  </body>
+</html>
