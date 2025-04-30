@@ -2,49 +2,40 @@
   {
     "id": 1,
     "name": "Laptop MSI Modern 15 B13M-438VN",
+    "brand": "MSI",
+    "price": 15990000,
+    "originalPrice": 19990000,
+    "discount": "20%",
+    "images": [
+      "images/vaio-main.jpg",
+      "images/vaio-thumb1.jpg",
+      "images/vaio-thumb2.jpg",
+      "images/vaio-thumb3.jpg",
+      "images/vaio-thumb4.jpg"
+    ],
     "specs": {
-      "CPU": "Intel Core i5-1335U (up to 4.6GHz, 10 cores)",
-      "RAM": "16GB DDR4 3200MHz",
-      "Storage": "512GB PCIe NVMe SSD",
-      "GPU": "Intel Iris Xe Graphics",
-      "Display": "15.6 inch FHD (1920x1080), IPS, Anti-Glare",
-      "OS": "Windows 11 Home"
-    }
-  },
-  {
-    "id": 2,
-    "name": "Laptop Dell Inspiron 15 3525",
-    "specs": {
-      "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
-      "RAM": "8GB DDR4 3200MHz",
-      "Storage": "512GB PCIe NVMe SSD",
-      "GPU": "AMD Radeon Graphics",
-      "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
-      "OS": "Windows 11 Home"
-    }
-  },
-  {
-    "id": 3,
-    "name": "Laptop HP Pavilion 15-eh2024AU",
-    "specs": {
-      "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
-      "RAM": "8GB DDR4 3200MHz",
-      "Storage": "512GB PCIe NVMe SSD",
-      "GPU": "AMD Radeon Graphics",
-      "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
-      "OS": "Windows 11 Home"
-    }
-  },
-  {
-    "id": 4,
-    "name": "Laptop Lenovo IdeaPad 3 15ABA7",
-    "specs": {
-      "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
-      "RAM": "8GB DDR4 3200MHz",
-      "Storage": "512GB PCIe NVMe SSD",
-      "GPU": "AMD Radeon Graphics",
-      "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
-      "OS": "Windows 11 Home"
-    }
+      "cpu": "Intel Core i5-1335U (up to 4.6GHz, 10 cores)",
+      "ram": "16GB DDR4 3200MHz",
+      "storage": "512GB PCIe NVMe SSD",
+      "gpu": "Intel Iris Xe Graphics",
+      "display": "15.6 inch FHD (1920x1080), IPS, Anti-Glare",
+      "os": "Windows 11 Home",
+      "battery": "3 cell, 52Whr",
+      "dimensions": "359 x 241 x 19.9 mm",
+      "weight": "1.7 kg",
+      "ports": "1x Type-C USB 3.2 Gen 2, 2x Type-A USB 3.2 Gen 2, HDMI, Audio combo jack",
+      "wireless": "Wi-Fi 6 (802.11ax), Bluetooth 5.2",
+      "webcam": "HD Webcam (720p)",
+      "audio": "2x 2W stereo speakers, DTS Audio",
+      "security": "Cảm biến vân tay tích hợp trên touchpad"
+    },
+    "reviews": [
+      {
+        "name": "Nguyễn Văn A",
+        "date": "20/04/2025",
+        "rating": 5,
+        "content": "Máy thiết kế đẹp, hiệu năng tốt, chạy mượt các ứng dụng văn phòng."
+      }
+    ]
   }
 ]

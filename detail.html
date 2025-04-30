@@ -36,7 +36,7 @@
 
       .logo img {
         height: 40px;
-      }
+}
 
       .search-bar {
         display: flex;
@@ -416,7 +416,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <header class="header">
@@ -509,27 +509,27 @@
             <div class="specs-list">
               <div class="spec-item">
                 <span class="spec-label">CPU:</span>
-                <span class="spec-value" id="cpu"></span>
+                <span class="spec-value spec-cpu"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">RAM:</span>
-                <span class="spec-value" id="ram"></span>
+                <span class="spec-value spec-ram"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">Ổ cứng:</span>
-                <span class="spec-value" id="storage"></span>
+                <span class="spec-value spec-storage"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">Card đồ họa:</span>
-                <span class="spec-value" id="gpu"></span>
+                <span class="spec-value spec-gpu"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">Màn hình:</span>
-                <span class="spec-value" id="display"></span>
+                <span class="spec-value spec-display"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">Hệ điều hành:</span>
-                <span class="spec-value" id="os"></span>
+                <span class="spec-value spec-os"></span>
               </div>
             </div>
           </div>
@@ -632,62 +632,59 @@
             <table class="specs-table">
               <tr>
                 <td><strong>CPU</strong></td>
-                <td>Intel Core i5-1335U (up to 4.6GHz, 10 cores)</td>
+                <td id="cpu"></td>
               </tr>
               <tr>
                 <td><strong>RAM</strong></td>
-                <td>16GB DDR4 3200MHz</td>
+                <td id="ram"></td>
               </tr>
               <tr>
                 <td><strong>Ổ cứng</strong></td>
-                <td>512GB PCIe NVMe SSD</td>
+                <td id="storage"></td>
               </tr>
               <tr>
                 <td><strong>Card đồ họa</strong></td>
-                <td>Intel Iris Xe Graphics</td>
+                <td id="gpu"></td>
               </tr>
               <tr>
                 <td><strong>Màn hình</strong></td>
-                <td>15.6 inch FHD (1920x1080), IPS, Anti-Glare</td>
+                <td id="display"></td>
               </tr>
               <tr>
                 <td><strong>Hệ điều hành</strong></td>
-                <td>Windows 11 Home</td>
+                <td id="os"></td>
               </tr>
               <tr>
                 <td><strong>Pin</strong></td>
-                <td>3 cell, 52Whr</td>
+                <td id="battery"></td>
               </tr>
               <tr>
                 <td><strong>Kích thước</strong></td>
-                <td>359 x 241 x 19.9 mm</td>
+                <td id="dimensions"></td>
               </tr>
               <tr>
                 <td><strong>Trọng lượng</strong></td>
-                <td>1.7 kg</td>
+                <td id="weight"></td>
               </tr>
               <tr>
                 <td><strong>Cổng kết nối</strong></td>
-                <td>
-                  1x Type-C USB 3.2 Gen 2, 2x Type-A USB 3.2 Gen 2, 1x HDMI, 1x
-                  Micro SD, 1x Audio combo jack
-                </td>
+                <td id="ports"></td>
               </tr>
               <tr>
                 <td><strong>Kết nối không dây</strong></td>
-                <td>Wi-Fi 6 (802.11ax), Bluetooth 5.2</td>
+                <td id="wireless"></td>
               </tr>
               <tr>
                 <td><strong>Webcam</strong></td>
-                <td>HD Webcam (720p)</td>
+                <td id="webcam"></td>
               </tr>
               <tr>
                 <td><strong>Âm thanh</strong></td>
-                <td>2x 2W stereo speakers, DTS Audio</td>
+                <td id="audio"></td>
               </tr>
               <tr>
                 <td><strong>Bảo mật</strong></td>
-                <td>Cảm biến vân tay tích hợp trên touchpad</td>
+                <td id="security"></td>
               </tr>
             </table>
           </div>
@@ -838,15 +835,6 @@
           const product = products.find((p) => p.id === productId);
 
           if (product) {
-            // Xóa thông tin cũ
-            document.querySelector('.product-title').textContent = '';
-            document.querySelector('.current-price').textContent = '';
-            document.querySelector('.original-price').textContent = '';
-            document.querySelector('.discount-badge').textContent = '';
-            document.querySelector('.thumbnail-gallery').innerHTML = '';
-            document.querySelector('.specs-table').innerHTML = '';
-            document.querySelector('.review-list').innerHTML = '';
-
             // Hiển thị thông tin sản phẩm
             document.querySelector('.product-title').textContent = product.name;
             document.querySelector('.current-price').textContent = product.price.toLocaleString() + '₫';
@@ -857,31 +845,51 @@
             const mainImage = document.querySelector('.main-image img');
             mainImage.src = product.images[0];
 
-            const thumbnailGallery = document.querySelector('.thumbnail-gallery');
-            product.images.forEach((image, index) => {
-              const thumbnail = document.createElement('div');
-              thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
-              thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" />`;
-              thumbnailGallery.appendChild(thumbnail);
+            const thumbnailGallery = document.querySelectorAll('.thumbnail-gallery');
+            thumbnailGallery.forEach(gallery => {
+              gallery.innerHTML = '';
+              product.images.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" />`;
+                gallery.appendChild(thumbnail);
 
-              // Thay đổi ảnh chính khi nhấn vào thumbnail
-              thumbnail.addEventListener('click', () => {
-                document.querySelectorAll('.thumbnail').forEach((t) => t.classList.remove('active'));
-                thumbnail.classList.add('active');
-                mainImage.src = image;
+                // Thay đổi ảnh chính khi nhấn vào thumbnail
+                thumbnail.addEventListener('click', () => {
+                  gallery.querySelectorAll('.thumbnail').forEach((t) => t.classList.remove('active'));
+                  thumbnail.classList.add('active');
+                  mainImage.src = image;
+                });
               });
             });
 
-            // Hiển thị thông số kỹ thuật
-            document.getElementById('cpu').textContent = product.specs.CPU;
-            document.getElementById('ram').textContent = product.specs.RAM;
-            document.getElementById('storage').textContent = product.specs.Storage;
-            document.getElementById('gpu').textContent = product.specs.GPU;
-            document.getElementById('display').textContent = product.specs.Display;
-            document.getElementById('os').textContent = product.specs.OS;
+            // Hiển thị thông số kỹ thuật cho bảng
+            document.getElementById('cpu').textContent = product.specs.cpu;
+            document.getElementById('ram').textContent = product.specs.ram;
+            document.getElementById('storage').textContent = product.specs.storage;
+            document.getElementById('gpu').textContent = product.specs.gpu;
+            document.getElementById('display').textContent = product.specs.display;
+            document.getElementById('os').textContent = product.specs.os;
+            document.getElementById('battery').textContent = product.specs.battery;
+            document.getElementById('dimensions').textContent = product.specs.dimensions;
+            document.getElementById('weight').textContent = product.specs.weight;
+            document.getElementById('ports').textContent = product.specs.ports;
+            document.getElementById('wireless').textContent = product.specs.wireless;
+            document.getElementById('webcam').textContent = product.specs.webcam;
+            document.getElementById('audio').textContent = product.specs.audio;
+            document.getElementById('security').textContent = product.specs.security;
+
+            // Hiển thị thông số kỹ thuật cho phần cấu hình chính
+            document.querySelectorAll('.spec-cpu').forEach(el => el.textContent = product.specs.cpu);
+            document.querySelectorAll('.spec-ram').forEach(el => el.textContent = product.specs.ram);
+            document.querySelectorAll('.spec-storage').forEach(el => el.textContent = product.specs.storage);
+            document.querySelectorAll('.spec-gpu').forEach(el => el.textContent = product.specs.gpu);
+            document.querySelectorAll('.spec-display').forEach(el => el.textContent = product.specs.display);
+            document.querySelectorAll('.spec-os').forEach(el => el.textContent = product.specs.os);
 
             // Hiển thị đánh giá
             const reviewList = document.querySelector('.review-list');
+            reviewList.innerHTML = '';
             product.reviews.forEach((review) => {
               const reviewItem = document.createElement('div');
               reviewItem.className = 'review-item';
@@ -903,5 +911,6 @@
         })
         .catch((error) => console.error('Error loading product data:', error));
     </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
