@@ -1,72 +1,48 @@
-[
-  {
-    "id": 1,
-    "name": "Laptop MSI Modern 15 B13M-438VN",
-    "brand": "MSI",
-    "price": 15990000,
-    "originalPrice": 19990000,
-    "discount": "20%",
-    "images": [
-      "image/vaio-main.jpg",
-      "image/vaio-thumb1.jpg",
-      "image/vaio-thumb2.jpg",
-      "image/vaio-thumb3.jpg",
-      "image/vaio-thumb4.jpg"
-    ],
-    "specs": {
-      "CPU": "Intel Core i5-1335U (up to 4.6GHz, 10 cores)",
-      "RAM": "16GB DDR4 3200MHz",
-      "Storage": "512GB PCIe NVMe SSD",
-      "GPU": "Intel Iris Xe Graphics",
-      "Display": "15.6 inch FHD (1920x1080), IPS, Anti-Glare",
-      "OS": "Windows 11 Home",
-      "Battery": "3 cell, 52Whr",
-      "Weight": "1.7 kg"
-    },
-    "reviews": [
-      {
-        "name": "Nguyễn Văn A",
-        "date": "20/04/2025",
-        "rating": 5,
-        "content": "Máy thiết kế đẹp, hiệu năng tốt, chạy mượt các ứng dụng văn phòng."
-      },
-      {
-        "name": "Trần Thị B",
-        "date": "15/04/2025",
-        "rating": 4,
-        "content": "Laptop chạy nhanh, mát, thiết kế gọn nhẹ. Màn hình hơi tối."
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "MacBook Air M2 2024",
-    "brand": "Apple",
-    "price": 27990000,
-    "originalPrice": 29990000,
-    "discount": "7%",
-    "images": [
-      "image/macbook-main.jpg",
-      "image/macbook-thumb1.jpg",
-      "image/macbook-thumb2.jpg"
-    ],
-    "specs": {
-      "CPU": "Apple M2",
-      "RAM": "8GB Unified Memory",
-      "Storage": "256GB SSD",
-      "GPU": "Integrated 8-core GPU",
-      "Display": "13.3 inch Retina, True Tone",
-      "OS": "macOS Ventura",
-      "Battery": "18 hours",
-      "Weight": "1.24 kg"
-    },
-    "reviews": [
-      {
-        "name": "Lê Văn C",
-        "date": "10/03/2025",
-        "rating": 5,
-        "content": "MacBook rất mượt, pin trâu, thiết kế đẹp. Đáng tiền!"
-      }
-    ]
+{
+  "id": 1,
+  "name": "Laptop MSI Modern 15 B13M-438VN",
+  "specs": {
+    "CPU": "Intel Core i5-1335U (up to 4.6GHz, 10 cores)",
+    "RAM": "16GB DDR4 3200MHz",
+    "Storage": "512GB PCIe NVMe SSD",
+    "GPU": "Intel Iris Xe Graphics",
+    "Display": "15.6 inch FHD (1920x1080), IPS, Anti-Glare",
+    "OS": "Windows 11 Home"
   }
-]
+}
+{
+  "id": 2,
+  "name": "Laptop Dell Inspiron 15 3525",
+  "specs": {
+    "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
+    "RAM": "8GB DDR4 3200MHz",
+    "Storage": "512GB PCIe NVMe SSD",
+    "GPU": "AMD Radeon Graphics",
+    "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
+    "OS": "Windows 11 Home"
+  }
+}
+{
+  "id": 3,
+  "name": "Laptop HP Pavilion 15-eh2024AU",
+  "specs": {
+    "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
+    "RAM": "8GB DDR4 3200MHz",
+    "Storage": "512GB PCIe NVMe SSD",
+    "GPU": "AMD Radeon Graphics",
+    "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
+    "OS": "Windows 11 Home"
+  }
+}
+{
+  "id": 4,
+  "name": "Laptop Lenovo IdeaPad 3 15ABA7",
+  "specs": {
+    "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
+    "RAM": "8GB DDR4 3200MHz",
+    "Storage": "512GB PCIe NVMe SSD",
+    "GPU": "AMD Radeon Graphics",
+    "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
+    "OS": "Windows 11 Home"
+  }
+}

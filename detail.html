@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laptop MSI Modern 15 B13M-438VN | Đức Mạnh Store</title>
+    <title>Laptop MSI Modern 15| Đức Mạnh Store</title>
     <style>
       * {
         margin: 0;
@@ -509,27 +509,27 @@
             <div class="specs-list">
               <div class="spec-item">
                 <span class="spec-label">CPU:</span>
-                <span class="spec-value"
-                  ></span
-                >
+                <span class="spec-value" id="cpu"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">RAM:</span>
-                <span class="spec-value"></span>
+                <span class="spec-value" id="ram"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">Ổ cứng:</span>
-                <span class="spec-value"></span>
-              </divv class="spec-item">
+                <span class="spec-value" id="storage"></span>
+              </div>
+              <div class="spec-item">
                 <span class="spec-label">Card đồ họa:</span>
-                <span class="spec-value"></span>
-              </v class="spec-item">
+                <span class="spec-value" id="gpu"></span>
+              </div>
+              <div class="spec-item">
                 <span class="spec-label">Màn hình:</span>
-                <span class="spec-value"></span>
+                <span class="spec-value" id="display"></span>
               </div>
               <div class="spec-item">
                 <span class="spec-label">Hệ điều hành:</span>
-                <span class="spec-value"></span>
+                <span class="spec-value" id="os"></span>
               </div>
             </div>
           </div>
@@ -873,12 +873,12 @@
             });
 
             // Hiển thị thông số kỹ thuật
-            const specsTable = document.querySelector('.specs-table');
-            for (const [key, value] of Object.entries(product.specs)) {
-              const row = document.createElement('tr');
-              row.innerHTML = `<td><strong>${key}</strong></td><td>${value}</td>`;
-              specsTable.appendChild(row);
-            }
+            document.getElementById('cpu').textContent = product.specs.CPU;
+            document.getElementById('ram').textContent = product.specs.RAM;
+            document.getElementById('storage').textContent = product.specs.Storage;
+            document.getElementById('gpu').textContent = product.specs.GPU;
+            document.getElementById('display').textContent = product.specs.Display;
+            document.getElementById('os').textContent = product.specs.OS;
 
             // Hiển thị đánh giá
             const reviewList = document.querySelector('.review-list');
