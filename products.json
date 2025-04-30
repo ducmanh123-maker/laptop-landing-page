@@ -1,48 +1,50 @@
-{
-  "id": 1,
-  "name": "Laptop MSI Modern 15 B13M-438VN",
-  "specs": {
-    "CPU": "Intel Core i5-1335U (up to 4.6GHz, 10 cores)",
-    "RAM": "16GB DDR4 3200MHz",
-    "Storage": "512GB PCIe NVMe SSD",
-    "GPU": "Intel Iris Xe Graphics",
-    "Display": "15.6 inch FHD (1920x1080), IPS, Anti-Glare",
-    "OS": "Windows 11 Home"
+[
+  {
+    "id": 1,
+    "name": "Laptop MSI Modern 15 B13M-438VN",
+    "specs": {
+      "CPU": "Intel Core i5-1335U (up to 4.6GHz, 10 cores)",
+      "RAM": "16GB DDR4 3200MHz",
+      "Storage": "512GB PCIe NVMe SSD",
+      "GPU": "Intel Iris Xe Graphics",
+      "Display": "15.6 inch FHD (1920x1080), IPS, Anti-Glare",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Laptop Dell Inspiron 15 3525",
+    "specs": {
+      "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
+      "RAM": "8GB DDR4 3200MHz",
+      "Storage": "512GB PCIe NVMe SSD",
+      "GPU": "AMD Radeon Graphics",
+      "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Laptop HP Pavilion 15-eh2024AU",
+    "specs": {
+      "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
+      "RAM": "8GB DDR4 3200MHz",
+      "Storage": "512GB PCIe NVMe SSD",
+      "GPU": "AMD Radeon Graphics",
+      "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Laptop Lenovo IdeaPad 3 15ABA7",
+    "specs": {
+      "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
+      "RAM": "8GB DDR4 3200MHz",
+      "Storage": "512GB PCIe NVMe SSD",
+      "GPU": "AMD Radeon Graphics",
+      "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
+      "OS": "Windows 11 Home"
+    }
   }
-}
-{
-  "id": 2,
-  "name": "Laptop Dell Inspiron 15 3525",
-  "specs": {
-    "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
-    "RAM": "8GB DDR4 3200MHz",
-    "Storage": "512GB PCIe NVMe SSD",
-    "GPU": "AMD Radeon Graphics",
-    "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
-    "OS": "Windows 11 Home"
-  }
-}
-{
-  "id": 3,
-  "name": "Laptop HP Pavilion 15-eh2024AU",
-  "specs": {
-    "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
-    "RAM": "8GB DDR4 3200MHz",
-    "Storage": "512GB PCIe NVMe SSD",
-    "GPU": "AMD Radeon Graphics",
-    "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
-    "OS": "Windows 11 Home"
-  }
-}
-{
-  "id": 4,
-  "name": "Laptop Lenovo IdeaPad 3 15ABA7",
-  "specs": {
-    "CPU": "AMD Ryzen 5 7535U (up to 4.5GHz, 6 cores)",
-    "RAM": "8GB DDR4 3200MHz",
-    "Storage": "512GB PCIe NVMe SSD",
-    "GPU": "AMD Radeon Graphics",
-    "Display": "15.6 inch FHD (1920x1080), Anti-Glare",
-    "OS": "Windows 11 Home"
-  }
-}
+]
