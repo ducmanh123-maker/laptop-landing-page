@@ -1,24 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đức Mạnh Store - Laptop</title>
     <style>
-      /* Banners */
-      .banner {
-        margin: 20px 0;
-        overflow: hidden;
-        border-radius: 6px;
-      }
-
-      .banner img {
-        width: 100%;
-        height: auto;
-        border-radius: 6px;
-      }
-
-      /* Filters */
       .filters {
         background-color: var(--white);
         padding: 15px;
@@ -59,7 +45,6 @@
         border-color: var(--secondary-color);
       }
 
-      /* Products */
       .products {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -251,28 +236,12 @@
         color: #bbb;
       }
 
-      /* Responsive */
       @media (max-width: 768px) {
-        .header-content {
-          flex-wrap: wrap;
-        }
-
-        .logo {
-          margin-bottom: 10px;
-        }
-
-        .search-bar {
-          order: 3;
-          margin: 10px 0;
-          width: 100%;
-        }
-
-        .nav-icons {
-          order: 2;
-        }
-
         .products {
           grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+        .slides {
+          height: 300px;
         }
       }
 
@@ -280,14 +249,14 @@
         .products {
           grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         }
-
         .product-image {
           height: 150px;
         }
+        .slides {
+          height: 200px;
+        }
       }
 
-      /* ...existing code... */
-      /* Slider Banner */
       .banner-slider {
         margin: 20px 0;
         position: relative;
@@ -322,6 +291,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
         border-radius: 6px;
       }
 
@@ -377,24 +347,159 @@
         background-color: var(--primary-color);
       }
 
+      .banner {
+        margin: 20px 0;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+
+      .banner img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+      }
+
       @media (max-width: 768px) {
-        .slides {
-          height: 300px;
+        .header-content {
+          flex-wrap: wrap;
         }
 
-        .prev-slide,
-        .next-slide {
-          width: 30px;
-          height: 30px;
+        .logo {
+          margin-bottom: 10px;
+        }
+
+        .search-bar {
+          order: 3;
+          margin: 10px 0;
+          width: 50%;
+        }
+
+        .nav-icons {
+          order: 2;
+        }
+
+        .products {
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         }
       }
 
       @media (max-width: 576px) {
-        .slides {
-          height: 200px;
+        .products {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .product-image {
+          height: 150px;
         }
       }
-      /* ...existing code... */
+
+      .sidebar-categories {
+        width: 240px;
+        background: #eeeeee;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        padding: 20px 10px 20px 10px;
+        margin-bottom: 30px;
+        float: left;
+      }
+      .sidebar-categories nav {
+        margin-bottom: 20px;
+      }
+      .sidebar-categories h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: var(--primary-color, #c8001a);
+        font-weight: 700;
+      }
+      .sidebar-categories ul.root {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .sidebar-categories ul.root li {
+        margin-bottom: 10px;
+      }
+      .sidebar-categories ul.root li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #222;
+        font-size: 15px;
+        border-radius: 6px;
+        padding: 6px 8px;
+        transition: background 0.2s;
+      }
+      .sidebar-categories ul.root li a:hover {
+        background: #f5f5f5;
+        color: var(--primary-color, #c8001a);
+      }
+      .sidebar-categories label {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .sidebar-categories img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+      @media (max-width: 900px) {
+        .sidebar-categories {
+          width: 100%;
+          float: none;
+          margin-bottom: 20px;
+        }
+      }
+
+      .main-layout {
+        display: flex;
+        align-items: stretch;
+      }
+      .sidebar-categories {
+        width: 240px;
+        min-width: 200px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        padding: 20px 10px 20px 10px;
+        margin-bottom: 30px;
+        height: 100%;
+      }
+      .container {
+        flex: 1;
+        min-width: 0;
+      }
+      @media (max-width: 900px) {
+        .main-layout {
+          flex-direction: column;
+        }
+        .sidebar-categories {
+          width: 100%;
+          margin-bottom: 20px;
+          height: auto;
+        }
+      }
+
+       .search-bar {
+        display: flex;
+        width: 50%;
+      }
+
+      .search-bar input {
+        flex-grow: 1;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+      }
+      .search-bar button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 4px 10px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+      }
+      
     </style>
     <link
       rel="stylesheet"
@@ -409,16 +514,16 @@
       <div class="container">
         <div class="header-top">
           <div class="logo">
+            <!-- Logo cửa hàng -->
             <a href="#">
               <img src="/api/placeholder/180/40" alt="Đức Mạnh Store" />
             </a>
           </div>
-
           <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+            <!-- Thanh tìm kiếm sản phẩm -->
+            <input type="text" placeholder="Tìm kiếm laptop..." />
             <button>Tìm kiếm</button>
           </div>
-
           <!-- <div class="user-actions">
             <div class="action-item">
               <i>📱</i>
@@ -442,101 +547,139 @@
     <nav class="main-nav">
       <div class="container">
         <ul class="nav-list">
-          <li class="nav-item"><a href="#">Điện thoại</a></li>
+          <!-- Menu điều hướng chính -->
+          <li class="nav-item"><a href="#">Trang chủ</a></li>
           <li class="nav-item"><a href="#">Laptop</a></li>
-          <li class="nav-item"><a href="#">Máy tính bảng</a></li>
-          <li class="nav-item"><a href="#">Âm thanh</a></li>
-          <li class="nav-item"><a href="#">Đồng hồ</a></li>
-          <li class="nav-item"><a href="#">Nhà thông minh</a></li>
-          <li class="nav-item"><a href="#">Phụ kiện</a></li>
-          <li class="nav-item"><a href="#">Máy cũ giá rẻ</a></li>
-          <li class="nav-item"><a href="#">Khuyến mãi</a></li>
+          <li class="nav-item"><a href="#">Macbook</a></li>
+          <li class="nav-item"><a href="#">Laptop cũ like new</a></li>
+          <li class="nav-item"><a href="#"></a></li>
+          <li class="nav-item"><a href="#"></a></li>
         </ul>
       </div>
     </nav>
-    <!-- Main Content -->
-    <main class="container">
-      <!-- Banner -->
-      <!-- Banner -->
-      <div class="banner-slider">
-        <div class="slides">
-          <div class="slide active">
-            <img
-              src="/api/placeholder/1200/400?text=Laptop+Promotions"
-              alt="Laptop Promotions"
-            />
+
+    <div class="main-layout">
+      <div class="sidebar-categories">
+        <!-- Sidebar trái: danh mục sản phẩm, hàng cũ -->
+        <nav>
+          <h2>Danh mục</h2>
+          <ul class="root">
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2025/02/05/laptop.png;w=30;h=30;mode=pad" alt="Laptop văn phòng"></label><span>Laptop văn phòng</span></a>
+            </li>
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2025/02/05/laptop.png;w=30;h=30;mode=pad" alt="Laptop gaming"></label><span>Laptop gaming</span></a>
+            </li>
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2025/02/05/laptop.png;w=30;h=30;mode=pad" alt="Máy trạm"></label><span>Máy trạm</span></a>
+            </li>
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2024/11/14/logo-may-cu.png;w=30;h=30;mode=pad" alt="Laptop cũ"></label><span>Laptop cũ</span></a>
+            </li>
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2025/02/05/apple.png;w=30;h=30;mode=pad" alt="Macbook Nhật"></label><span>Macbook Nhật</span></a>
+            </li>
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2025/02/05/apple.png;w=30;h=30;mode=pad" alt="Macbook cũ"></label><span>Macbook cũ</span></a>
+            </li>
+          </ul>
+        </nav>
+        <nav>
+          <h2>Hàng cũ</h2>
+          <ul class="root">
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2024/11/14/logo-may-cu.png;w=30;h=30;mode=pad" alt="Hàng cũ"></label><span>Hàng cũ</span></a>
+            </li>
+            <li>
+              <a href="#"><label><img src="https://cdn.hoanghamobile.com/Uploads/2024/11/14/logo-thu-cu-doi-moi.png;w=30;h=30;mode=pad" alt="Thu cũ đổi mới"></label><span>Thu cũ đổi mới</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <main class="container">
+        <div class="banner-slider">
+          <!-- Slider banner quảng cáo -->
+          <div class="slides">
+            <div class="slide active">
+              <img
+                src="images/banner1.jpg"
+                alt="Khuyến mãi Laptop"
+                style="width:100%;height:100%;object-fit:cover;max-height:750px;display:block;"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="images/banner2.jpg"
+                alt="Laptop Gaming"
+                style="width:100%;height:100%;object-fit:cover;max-height:750px;display:block;"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="images/banner3.jpg"
+                alt="Macbook Nhật"
+                style="width:100%;height:100%;object-fit:cover;max-height:750px;display:block;"
+              />
+            </div>
           </div>
-          <div class="slide">
-            <img
-              src="/api/placeholder/1200/400?text=New+Arrivals"
-              alt="New Arrivals"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="/api/placeholder/1200/400?text=Special+Offers"
-              alt="Special Offers"
-            />
+          <div class="slider-controls">
+            <button class="prev-slide">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="slider-dots"></div>
+            <button class="next-slide">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
-        <div class="slider-controls">
-          <button class="prev-slide">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="slider-dots"></div>
-          <button class="next-slide">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+
+        <div class="filters">
+          <!-- Bộ lọc sản phẩm -->
+          <h2>Laptop</h2>
+          <div class="filter-options">
+            <button class="active">Tất cả</button>
+            <button>Văn phòng</button>
+            <button>Gaming</button>
+            <button>Máy trạm</button>
+            <button>Laptop Like New</button>
+            <button>Macbook Nhật</button>
+            <button>Macbook Cũ</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Filters -->
-      <div class="filters">
-        <h2>Laptop</h2>
-        <div class="filter-options">
-          <button class="active">Tất cả</button>
-          <button>Gaming</button>
-          <button>Macbook</button>
-          <button>Văn phòng</button>
-          <button>Đồ họa</button>
-          <button>Mỏng nhẹ</button>
-          <button>Cao cấp</button>
+        <div class="products" id="productsList">
+          <!-- Danh sách sản phẩm sẽ được render bằng JS -->
         </div>
-      </div>
 
-      <!-- Products -->
-      <div class="products" id="productsList">
-        <!-- Products will be populated here by JavaScript -->
-      </div>
+        <div class="pagination">
+          <!-- Phân trang sản phẩm -->
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button><i class="fas fa-angle-right"></i></button>
+        </div>
+      </main>
+    </div>
 
-      <!-- Pagination -->
-      <div class="pagination">
-        <button class="active">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button><i class="fas fa-angle-right"></i></button>
-      </div>
-    </main>
-
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-content">
+          <!-- Footer: thông tin, hỗ trợ, liên hệ -->
           <div class="footer-column">
             <h3>Thông tin</h3>
             <ul>
-              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Giới thiệu về Đức Mạnh Store</a></li>
               <li><a href="#">Tuyển dụng</a></li>
-              <li><a href="#">Tin tức</a></li>
+              <li><a href="#">Tin tức laptop</a></li>
               <li><a href="#">Liên hệ</a></li>
             </ul>
           </div>
           <div class="footer-column">
             <h3>Chính sách</h3>
             <ul>
-              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách bảo hành laptop</a></li>
               <li><a href="#">Chính sách thanh toán</a></li>
               <li><a href="#">Chính sách giao hàng</a></li>
               <li><a href="#">Chính sách bảo mật</a></li>
@@ -545,41 +688,42 @@
           <div class="footer-column">
             <h3>Hỗ trợ khách hàng</h3>
             <ul>
-              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn mua laptop</a></li>
               <li><a href="#">Hướng dẫn thanh toán</a></li>
               <li><a href="#">Tra cứu đơn hàng</a></li>
-              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Câu hỏi thường gặp về laptop</a></li>
             </ul>
           </div>
           <div class="footer-column">
             <h3>Liên hệ</h3>
             <ul>
               <li>
-                <a href="#"><i class="fas fa-phone"></i> Hotline: 1900 1234</a>
+                <a href="#"><i class="fas fa-phone"></i> Zalo: ``0357735346``</a>
               </li>
               <li>
                 <a href="#"
                   ><i class="fas fa-envelope"></i> Email:
-                  info@hoanghamobile.com</a
+                  cskh@ducmanhstore.com</a
                 >
               </li>
               <li>
                 <a href="#"
-                  ><i class="fas fa-map-marker-alt"></i> Địa chỉ: Hà Nội, Việt
-                  Nam</a
-                >
+                  ><i class="fas fa-map-marker-alt"></i> Địa chỉ (Nhật): 東京都葛飾区新小岩1－56－14キャッスルマンション新小岩702号室</a
+                  ><i class="fas fa-map-marker-alt"></i></a>
+
               </li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Đức Mạnh Store. Tất cả quyền được bảo lưu.</p>
+          <!-- Bản quyền và thông tin cuối trang -->
+          <p>&copy; 2025 Đức Mạnh Store. Chuyên laptop nội địa Nhật & Quốc tế.</p>
         </div>
       </div>
     </footer>
 
     <script>
-      // Sample product data
+      // Dữ liệu sản phẩm mẫu
       const products = [
         {
           id: 1,
@@ -713,7 +857,7 @@
         },
       ];
 
-      // Format price
+      // Định dạng giá tiền VND
       function formatPrice(price) {
         return new Intl.NumberFormat("vi-VN", {
           style: "currency",
@@ -721,7 +865,7 @@
         }).format(price);
       }
 
-      // Generate star rating HTML
+      // Sinh HTML đánh giá sao cho sản phẩm
       function generateRatingStars(rating) {
         let starsHTML = "";
         const fullStars = Math.floor(rating);
@@ -743,7 +887,7 @@
         return starsHTML;
       }
 
-      // Display products
+      // Render danh sách sản phẩm ra giao diện
       function displayProducts(products) {
         const productsContainer = document.getElementById("productsList");
         let productsHTML = "";
@@ -783,11 +927,11 @@
         productsContainer.innerHTML = productsHTML;
       }
 
-      // Initialize
+      // Sự kiện DOMContentLoaded: render sản phẩm, gắn sự kiện filter, phân trang, thêm vào giỏ
       document.addEventListener("DOMContentLoaded", function () {
         displayProducts(products);
 
-        // Filter buttons
+        // Gắn sự kiện filter
         const filterButtons = document.querySelectorAll(
           ".filter-options button"
         );
@@ -795,24 +939,21 @@
           button.addEventListener("click", function () {
             filterButtons.forEach((btn) => btn.classList.remove("active"));
             this.classList.add("active");
-            // In a real app, this would filter products
           });
         });
 
-        // Pagination buttons
+        // Gắn sự kiện phân trang
         const pageButtons = document.querySelectorAll(".pagination button");
         pageButtons.forEach((button) => {
           button.addEventListener("click", function () {
             pageButtons.forEach((btn) => btn.classList.remove("active"));
             if (!this.querySelector("i")) {
-              // Skip the next button
               this.classList.add("active");
             }
-            // In a real app, this would load the corresponding page
           });
         });
 
-        // Add to cart buttons
+        // Gắn sự kiện thêm vào giỏ hàng
         const addToCartButtons = document.querySelectorAll(".add-to-cart");
         addToCartButtons.forEach((button) => {
           button.addEventListener("click", function () {
@@ -821,8 +962,7 @@
         });
       });
 
-      // ...existing code...
-      // Banner slider functionality
+      // Khởi tạo slider banner (tự động chuyển, có nút điều khiển, dot)
       function initSlider() {
         const slides = document.querySelectorAll(".slide");
         const sliderDots = document.querySelector(".slider-dots");
@@ -831,7 +971,6 @@
         let currentSlide = 0;
         let slideInterval;
 
-        // Create dots based on number of slides
         slides.forEach((_, index) => {
           const dot = document.createElement("div");
           dot.classList.add("dot");
@@ -842,7 +981,6 @@
 
         const dots = document.querySelectorAll(".dot");
 
-        // Go to specific slide
         function goToSlide(slideIndex) {
           slides.forEach((slide) => slide.classList.remove("active"));
           dots.forEach((dot) => dot.classList.remove("active"));
@@ -853,19 +991,16 @@
           currentSlide = slideIndex;
         }
 
-        // Next slide
         function nextSlide() {
           const newIndex = (currentSlide + 1) % slides.length;
           goToSlide(newIndex);
         }
 
-        // Previous slide
         function prevSlide() {
           const newIndex = (currentSlide - 1 + slides.length) % slides.length;
           goToSlide(newIndex);
         }
 
-        // Set up event listeners
         prevBtn.addEventListener("click", () => {
           prevSlide();
           resetInterval();
@@ -876,9 +1011,8 @@
           resetInterval();
         });
 
-        // Auto-advance slides
         function startSlideInterval() {
-          slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+          slideInterval = setInterval(nextSlide, 5000);
         }
 
         function resetInterval() {
@@ -886,18 +1020,14 @@
           startSlideInterval();
         }
 
-        // Initialize auto-slide
         startSlideInterval();
       }
 
-      // Add slider initialization to the DOMContentLoaded event
+      // Khởi tạo slider khi DOM ready
       document.addEventListener("DOMContentLoaded", function () {
         displayProducts(products);
-        initSlider(); // Initialize the slider
-
-        // ...existing event handlers...
+        initSlider();
       });
-      // ...existing code...
     </script>
   </body>
 </html>

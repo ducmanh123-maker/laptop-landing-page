@@ -22,7 +22,7 @@
         padding: 0 15px;
       }
 
-      /* Header Styles */
+      
       header {
         background-color: #d0021b;
         padding: 10px 0;
@@ -36,7 +36,7 @@
 
       .logo img {
         height: 40px;
-}
+      }
 
       .search-bar {
         display: flex;
@@ -54,7 +54,7 @@
         background-color: #333;
         color: white;
         border: none;
-        padding: 8px 15px;
+        padding: 4px 10px;
         border-radius: 0 4px 4px 0;
         cursor: pointer;
       }
@@ -77,9 +77,9 @@
         font-size: 20px;
       }
 
-      /* Navigation */
+      
       .main-nav {
-        background-color: #f4f4f4;
+        background-color: #d0021b; 
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
 
@@ -87,6 +87,7 @@
         display: flex;
         list-style-type: none;
         padding: 10px 0;
+        margin: 0;
       }
 
       .nav-list li {
@@ -95,13 +96,13 @@
 
       .nav-list a {
         text-decoration: none;
-        color: #333;
+        color: #fff;
         font-weight: bold;
         transition: color 0.3s;
       }
 
       .nav-list a:hover {
-        color: #d0021b;
+        color: #ffe3e3;
       }
 
       /* Breadcrumb */
@@ -410,6 +411,50 @@
         color: #999;
         font-size: 14px;
       }
+       .category-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        background: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        padding: 0 24px;
+        min-height: 54px;
+        margin: 0 auto 24px auto;
+        max-width: 100%; /* Độ dài thanh trắng ngang chiếm toàn bộ chiều ngang */
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 10;
+      }
+      .category-bar a {
+        color: #222;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        padding: 12px 0;
+        transition: color 0.2s;
+        border-bottom: 2px solid transparent;
+        display: inline-block;
+      }
+      .category-bar a:hover {
+        color: var(--primary-color, #d0021b);
+        border-bottom: 2px solid var(--primary-color, #d0021b);
+      }
+      @media (max-width: 900px) {
+        .category-bar {
+          flex-wrap: wrap;
+          gap: 16px;
+          padding: 0 10px;
+          min-height: 44px;
+          font-size: 14px;
+        }
+        .category-bar a {
+          font-size: 14px;
+          padding: 8px 0;
+        }
+      }
     </style>
     <link
       rel="stylesheet"
@@ -452,28 +497,22 @@
         </div>
       </div>
     </header>
-
-    <nav class="main-nav">
-      <div class="container">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="#">Laptop Gamming</a></li>
-          <li class="nav-item"><a href="#">Laptop Văn Phòng</a></li>
-          <li class="nav-item"><a href="#">Macbook Nhật</a></li>
-          <li class="nav-item"><a href="#">Macbook Mỹ</a></li>
-          <li class="nav-item"><a href="#">Laptop cũ giá rẻ</a></li>
-          <li class="nav-item"><a href="#">Nhà thông minh</a></li>
-          <li class="nav-item"><a href="#">Phụ kiện</a></li>
-          <li class="nav-item"><a href="#">Máy cũ giá rẻ</a></li>
-          <li class="nav-item"><a href="#">Khuyến mãi</a></li>
-        </ul>
-      </div>
-    </nav>
-
+ <div class="category-bar">
+      <a href="#">Laptop văn phòng</a>
+      <a href="#">Laptop gaming</a>
+      <a href="#">Laptop cao cấp</a>
+      <a href="#">Laptop đồ họa</a>
+      <a href="#">Macbook Nhật</a>
+      <a href="#">Macbook Mỹ</a>
+      <a href="#">Laptop cũ giá rẻ</a>
+      <a href="#">Phụ kiện laptop</a>
+      <a href="#">Khuyến mãi laptop</a>
+    </div>
     <main class="container">
       <div class="breadcrumb">
-        <a href="#">Trang chủ</a>
+        <a href="home.html">Trang chủ</a>
         <span>></span>
-        <a href="#">Laptop</a>
+        <a href="index.html">Laptop</a>
         <span>></span>
         <a href="#">MSI</a>
         <span>></span>
@@ -496,10 +535,9 @@
             <div class="original-price"></div>
             <div class="discount-badge"></div>
           </div>
-          <div class="thumbnail-gallery"></div>
 
           <div class="product-meta">
-            <div class="brand">T<strong>MSI</strong></div>
+            <div class="brand"><strong>MSI</strong></div>
             <div class="rating">★★★★★ (10 đánh giá)</div>
             <div class="sku">Mã SP: </div>
           </div>
@@ -546,7 +584,7 @@
               <li></li>
               <li></li>
               <li></li>
-              <li>/li>
+              <li></li>
             </ul>
           </div>
         </div>
@@ -779,91 +817,90 @@
     </footer>
 
     <script>
-      // Image Gallery Functionality
+      // Xử lý gallery ảnh sản phẩm (Image Gallery Functionality)
       const thumbnails = document.querySelectorAll(".thumbnail");
       const mainImage = document.querySelector(".main-image img");
 
       thumbnails.forEach((thumbnail) => {
         thumbnail.addEventListener("click", function () {
-          // Remove active class from all thumbnails
+          // Bỏ class active khỏi tất cả thumbnail
           thumbnails.forEach((t) => t.classList.remove("active"));
 
-          // Add active class to clicked thumbnail
+          // Thêm class active cho thumbnail được click
           this.classList.add("active");
 
-          // Change main image source (in a real implementation)
+          // Đổi ảnh chính theo thumbnail
           mainImage.src = this.querySelector('img').src;
         });
       });
 
-      // Tab Functionality
+      // Xử lý chuyển tab (Tabs Functionality)
       const tabButtons = document.querySelectorAll(".tab-button");
       const tabPanes = document.querySelectorAll(".tab-pane");
 
       tabButtons.forEach((button) => {
         button.addEventListener("click", function () {
-          // Remove active class from all buttons and panes
+          // Bỏ active khỏi tất cả tab
           tabButtons.forEach((b) => b.classList.remove("active"));
           tabPanes.forEach((p) => p.classList.remove("active"));
 
-          // Add active class to clicked button
+          // Thêm active cho tab được chọn
           this.classList.add("active");
 
-          // Show corresponding tab pane
+          // Hiển thị nội dung tab tương ứng
           const tabId = this.getAttribute("data-tab");
           document.getElementById(tabId).classList.add("active");
         });
       });
 
-      // Buy Now Button
+      // Xử lý nút MUA NGAY (Buy Now)
       const buyNowButton = document.querySelector(".buy-now");
       buyNowButton.addEventListener("click", function () {
         alert("Chuyển đến trang thanh toán!");
       });
 
-      // Add to Cart Button
+      // Xử lý nút THÊM VÀO GIỎ (Add to Cart)
       const addToCartButton = document.querySelector(".add-to-cart");
       addToCartButton.addEventListener("click", function () {
         alert("Đã thêm sản phẩm vào giỏ hàng!");
       });
 
-      // Load product data from JSON
+      // Lấy dữ liệu sản phẩm và hiển thị lên trang (Fetch product data and render)
       fetch('products.json')
         .then((response) => response.json())
         .then((products) => {
-          const productId = 1; // ID của sản phẩm cần hiển thị (có thể lấy từ URL)
+          const productId = 1; // ID sản phẩm mẫu
           const product = products.find((p) => p.id === productId);
 
           if (product) {
-            // Hiển thị thông tin sản phẩm
+            // Hiển thị tên, giá, giảm giá
             document.querySelector('.product-title').textContent = product.name;
             document.querySelector('.current-price').textContent = product.price.toLocaleString() + '₫';
             document.querySelector('.original-price').textContent = product.originalPrice.toLocaleString() + '₫';
             document.querySelector('.discount-badge').textContent = '-' + product.discount;
 
-            // Hiển thị hình ảnh
+            // Hiển thị ảnh chính
             const mainImage = document.querySelector('.main-image img');
             mainImage.src = product.images[0];
 
-            const thumbnailGallery = document.querySelectorAll('.thumbnail-gallery');
-            thumbnailGallery.forEach(gallery => {
-              gallery.innerHTML = '';
-              product.images.forEach((image, index) => {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
-                thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" />`;
-                gallery.appendChild(thumbnail);
+            // Hiển thị gallery ảnh nhỏ (thumbnail)
+            const thumbnailGallery = document.querySelector('.thumbnail-gallery');
+            thumbnailGallery.innerHTML = '';
+            product.images.forEach((image, index) => {
+              const thumbnail = document.createElement('div');
+              thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
+              thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" />`;
+              thumbnailGallery.appendChild(thumbnail);
 
-                // Thay đổi ảnh chính khi nhấn vào thumbnail
-                thumbnail.addEventListener('click', () => {
-                  gallery.querySelectorAll('.thumbnail').forEach((t) => t.classList.remove('active'));
-                  thumbnail.classList.add('active');
-                  mainImage.src = image;
-                });
+              // Xử lý click vào thumbnail
+              thumbnail.addEventListener('click', () => {
+                thumbnailGallery.querySelectorAll('.thumbnail').forEach((t) => t.classList.remove('active'));
+                thumbnail.classList.add('active');
+                mainImage.src = image;
               });
             });
 
-            // Hiển thị thông số kỹ thuật cho bảng
+            // Hiển thị thông số kỹ thuật chi tiết (specs)
             document.getElementById('cpu').textContent = product.specs.cpu;
             document.getElementById('ram').textContent = product.specs.ram;
             document.getElementById('storage').textContent = product.specs.storage;
@@ -879,7 +916,7 @@
             document.getElementById('audio').textContent = product.specs.audio;
             document.getElementById('security').textContent = product.specs.security;
 
-            // Hiển thị thông số kỹ thuật cho phần cấu hình chính
+            // Hiển thị thông số kỹ thuật cho phần cấu hình chính (specs summary)
             document.querySelectorAll('.spec-cpu').forEach(el => el.textContent = product.specs.cpu);
             document.querySelectorAll('.spec-ram').forEach(el => el.textContent = product.specs.ram);
             document.querySelectorAll('.spec-storage').forEach(el => el.textContent = product.specs.storage);
@@ -887,7 +924,7 @@
             document.querySelectorAll('.spec-display').forEach(el => el.textContent = product.specs.display);
             document.querySelectorAll('.spec-os').forEach(el => el.textContent = product.specs.os);
 
-            // Hiển thị đánh giá
+            // Hiển thị đánh giá (reviews)
             const reviewList = document.querySelector('.review-list');
             reviewList.innerHTML = '';
             product.reviews.forEach((review) => {
